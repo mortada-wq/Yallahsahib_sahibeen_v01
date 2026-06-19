@@ -1,0 +1,22 @@
+/* src/generated/figma-tokens.css */
+:root {
+  /* Primary palette (sample) */
+  --color-primary: #4672f4; /* blue */
+  --color-primary-dark: #3a5fcd;
+  --color-secondary: #13c9c2; /* teal */
+  --color-accent: #ffaa56;   /* amber */
+  --color-background: #1a1a1a; /* dark background */
+  --color-surface: #2a2a2a;   /* card surface */
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #a0a0a0;
+}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background: #f5f5f5;
+    --color-surface: #ffffff;
+    --color-text-primary: #212121;
+    --color-text-secondary: #555555;
+  }
+}

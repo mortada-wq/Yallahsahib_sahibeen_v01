@@ -6,9 +6,16 @@
 @use 'components/code.scss';
 @use 'components/editor.scss';
 @use 'components/toast.scss';
+@use 'premium.scss';
+
 
 html,
-body {
+  background-color: var(--bolt-elements-bg-depth-1);
+  color: var(--bolt-elements-textPrimary);
+}
+
+a { color: var(--bolt-elements-textAccent, #4672F4); text-decoration: underline; }
+
   height: 100%;
   width: 100%;
   background-color: var(--bolt-elements-bg-depth-1);

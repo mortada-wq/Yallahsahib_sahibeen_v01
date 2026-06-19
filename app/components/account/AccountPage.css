@@ -1,0 +1,131 @@
+:root {
+  --color-bg: hsl(210 20% 12%);
+  --color-surface: hsla(210 20% 15% / 0.8);
+  --color-primary: hsl(210 85% 55%);
+  --color-primary-hover: hsl(210 85% 65%);
+  --color-text: hsl(0 0% 90%);
+  --radius: 0.75rem;
+  --shadow: 0 8px 32px hsla(0 0% 0% / 0.2);
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+.glass {
+  backdrop-filter: blur(12px);
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid hsla(0 0% 100% / 0.08);
+}
+.account-page {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.page-title {
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  text-align: center;
+}
+.account-form {
+  display: grid;
+  gap: 1.25rem;
+}
+.account-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.account-form input {
+  padding: 0.6rem 0.9rem;
+  margin-top: 0.4rem;
+  border: 1px solid hsla(0 0% 100% / 0.12);
+  border-radius: var(--radius);
+  background: hsla(0 0% 100% / 0.04);
+  color: var(--color-text);
+  transition: border-color 0.2s, background 0.2s;
+}
+.account-form input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: hsla(0 0% 100% / 0.08);
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.primary-btn {
+  align-self: start;
+  padding: 0.7rem 1.4rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.1s;
+}
+.primary-btn:hover {
+  background: var(--color-primary-hover);
+}
+.primary-btn:active {
+  transform: scale(0.98);
+}
+.keys-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.api-key-card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.key-header {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.key-body {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.key-body code {
+  flex: 1;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  color: var(--color-text);
+}
+.copy-btn,
+.revoke-btn {
+  background: none;
+  border: 1px solid hsla(0 0% 100% / 0.2);
+  border-radius: var(--radius);
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  color: var(--color-text);
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+.copy-btn:hover,
+.revoke-btn:hover {
+  background: hsla(0 0% 100% / 0.08);
+}
+.key-meta {
+  font-size: 0.75rem;
+  color: hsla(0 0% 100% / 0.6);
+  display: flex;
+  justify-content: space-between;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.account-page { animation: fadeIn 0.45s ease-out forwards; }

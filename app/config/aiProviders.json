@@ -1,0 +1,17 @@
+{
+  "gemma4": {
+    "module": null,
+    "baseUrl": "https://api.gemma4.example/v1",
+    "apiKeyEnv": "GEMMA4_API_KEY"
+  },
+  "deepseek": {
+    "module": null,
+    "baseUrl": "https://api.deepseek.com/v1",
+    "apiKeyEnv": "DEEPSEEK_API_KEY"
+  },
+  "claude": {
+    "module": null,
+    "baseUrl": "https://api.anthropic.com/v1",
+    "apiKeyEnv": "CLAUDE_API_KEY"
+  }
+}
