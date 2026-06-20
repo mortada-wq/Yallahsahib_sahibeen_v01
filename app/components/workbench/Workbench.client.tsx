@@ -378,7 +378,7 @@ export const Workbench = memo(
             )}
           >
             <div className="absolute inset-0 lg:static lg:h-full">
-              <div className="flex h-full flex-col overflow-hidden rounded-[22px] border border-bolt-elements-borderColor bg-bolt-elements-background-depth-2 shadow-[0_24px_80px_rgba(0,0,0,0.16)]">
+              <div className="flex h-full flex-col overflow-hidden rounded-[var(--workspace-panel-radius)] border border-bolt-elements-borderColor bg-bolt-elements-background-depth-2 shadow-[var(--workspace-panel-shadow)]">
                 <div className="flex items-center gap-2 border-b border-bolt-elements-borderColor px-3 py-2.5">
                   <button
                     className={`${showChat ? 'i-ph:sidebar-simple-fill' : 'i-ph:sidebar-simple'} text-lg text-bolt-elements-textSecondary mr-1`}
@@ -390,7 +390,7 @@ export const Workbench = memo(
                     }}
                   />
                   {!isSmallViewport && (
-                    <span className="hidden text-[11px] font-medium uppercase tracking-[0.22em] text-bolt-elements-textTertiary xl:inline">
+                    <span className="hidden text-[var(--workspace-label-font-size)] font-medium uppercase tracking-[var(--workspace-label-letter-spacing)] text-bolt-elements-textTertiary xl:inline">
                       Workspace
                     </span>
                   )}

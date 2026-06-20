@@ -359,9 +359,12 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                 'lg:w-0 lg:min-w-0': !showChat,
               })}
             >
-              <div className="relative flex h-full min-h-0 flex-col overflow-hidden lg:rounded-[22px] lg:border lg:border-bolt-elements-borderColor lg:bg-bolt-elements-background-depth-2 lg:shadow-[0_24px_80px_rgba(0,0,0,0.16)]">
+              <div className="relative flex h-full min-h-0 flex-col overflow-hidden lg:rounded-[var(--workspace-panel-radius)] lg:border lg:border-bolt-elements-borderColor lg:bg-bolt-elements-background-depth-2 lg:shadow-[var(--workspace-panel-shadow)]">
                 {!chatStarted && (
-                  <div id="intro" className="mt-[14vh] max-w-xl mx-auto text-center px-4 lg:px-6">
+                  <div
+                    id="intro"
+                    className="mx-auto mt-[var(--workspace-intro-offset)] max-w-xl px-4 text-center lg:px-6"
+                  >
                     <div className="flex justify-center mb-8 animate-fade-in">
                       <img src="/logo-full.svg" alt="Yalla.s" className="h-16 w-auto" />
                     </div>

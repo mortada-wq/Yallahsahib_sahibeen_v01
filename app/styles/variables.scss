@@ -12,6 +12,11 @@
   --chat-min-width: 24rem;
   --workspace-gap: 1rem;
   --workspace-padding: clamp(0.75rem, 1.5vw, 1.25rem);
+  --workspace-intro-offset: 14vh;
+  --workspace-panel-radius: 22px;
+  --workspace-panel-shadow: 0 24px 80px rgba(0, 0, 0, 0.16);
+  --workspace-label-font-size: 11px;
+  --workspace-label-letter-spacing: 0.22em;
   --app-content-max-width: min(calc(100vw - (var(--workspace-padding) * 2)), 1680px);
   --chat-column-width: clamp(24rem, 32vw, var(--chat-max-width));
   --workbench-width: min(max(0px, calc(var(--app-content-max-width) - var(--chat-column-width) - var(--workspace-gap))), 2536px);
