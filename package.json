@@ -21,7 +21,7 @@
     "start:windows": "wrangler pages dev ./build/client",
     "start:unix": "bindings=$(./bindings.sh) && wrangler pages dev ./build/client $bindings",
     "start": "node -e \"const { spawn } = require('child_process'); const isWindows = process.platform === 'win32'; const cmd = isWindows ? 'npm run start:windows' : 'npm run start:unix'; const child = spawn(cmd, { shell: true, stdio: 'inherit' }); child.on('exit', code => process.exit(code));\"",
-    "dockerstart": "bindings=$(./bindings.sh) && wrangler pages dev ./build/client $bindings --ip 0.0.0.0 --port 5173 --no-show-interactive-dev-session",
+    "dockerstart": "bindings=$(./bindings.sh) && wrangler pages dev ./build/client $bindings --ip 0.0.0.0 --port ${PORT:-5173} --no-show-interactive-dev-session",
     "dockerrun": "docker run -it -d --name yalla-sahib-live -p 5173:5173 --env-file .env.local yalla-sahib",
     "dockerbuild:prod": "docker build -t yalla-sahib:production -t yalla-sahib:latest --target yalla-sahib-production .",
     "dockerbuild": "docker build -t yalla-sahib:development -t yalla-sahib:latest --target development .",
