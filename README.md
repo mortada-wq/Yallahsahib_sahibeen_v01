@@ -82,6 +82,15 @@ pnpm dockerbuild
 pnpm dockerrun                # http://localhost:5173
 ```
 
+### Railway
+
+Railway builds the app from the `Dockerfile` (`bolt-ai-production` target) using `railway.json`. Steps:
+
+1. Create a new Railway project and connect this repo (or run `railway up` from a linked project).
+2. Set your provider API keys (e.g. `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`) and any other vars from `.env.example` in the Railway service's Variables tab.
+3. Railway injects `PORT` automatically; the start command (`pnpm run dockerstart`) and Docker healthcheck both respect it.
+4. Deploy — Railway will build the Docker image and run the production server.
+
 ### Cloudflare Pages
 
 ```bash

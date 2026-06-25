@@ -76,9 +76,9 @@ RUN chmod +x /app/bindings.sh
 
 EXPOSE 5173
 
-# Healthcheck for deployment platforms
+# Healthcheck for deployment platforms (respects $PORT, e.g. on Railway)
 HEALTHCHECK --interval=10s --timeout=3s --start-period=5s --retries=5 \
-  CMD curl -fsS http://localhost:5173/ || exit 1
+  CMD curl -fsS http://localhost:${PORT:-5173}/ || exit 1
 
 # Start using dockerstart script with Wrangler
 CMD ["pnpm", "run", "dockerstart"]
