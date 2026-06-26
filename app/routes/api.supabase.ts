@@ -1,5 +1,5 @@
-import { json, type ActionFunction } from '@remix-run/cloudflare';
-import type { SupabaseProject } from '~/types/supabase';
+import { json, type ActionFunction } from '@remix-run/node';
+
 
 export const action: ActionFunction = async ({ request }) => {
   if (request.method !== 'POST') {
@@ -23,9 +23,9 @@ export const action: ActionFunction = async ({ request }) => {
       return json({ error: 'Failed to fetch projects' }, { status: 401 });
     }
 
-    const projects = (await projectsResponse.json()) as SupabaseProject[];
+    const projects = (await projectsResponse.json()) as any[];
 
-    const uniqueProjectsMap = new Map<string, SupabaseProject>();
+    const uniqueProjectsMap = new Map<string, any>();
 
     for (const project of projects) {
       if (!uniqueProjectsMap.has(project.id)) {

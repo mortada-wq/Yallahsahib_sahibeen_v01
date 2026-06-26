@@ -13,16 +13,7 @@ import type { DesignScheme } from '~/types/design-scheme';
 
 export type Messages = Message[];
 
-export interface StreamingOptions extends Omit<Parameters<typeof _streamText>[0], 'model'> {
-  supabaseConnection?: {
-    isConnected: boolean;
-    hasSelectedProject: boolean;
-    credentials?: {
-      anonKey?: string;
-      supabaseUrl?: string;
-    };
-  };
-}
+export type StreamingOptions = Omit<Parameters<typeof _streamText>[0], 'model'>;
 
 const logger = createScopedLogger('stream-text');
 
@@ -155,11 +146,6 @@ export async function streamText(props: {
       allowedHtmlElements: allowedHTMLElements,
       modificationTagName: MODIFICATIONS_TAG_NAME,
       designScheme,
-      supabase: {
-        isConnected: options?.supabaseConnection?.isConnected || false,
-        hasSelectedProject: options?.supabaseConnection?.hasSelectedProject || false,
-        credentials: options?.supabaseConnection?.credentials || undefined,
-      },
     }) ?? getSystemPrompt();
 
   if (chatMode === 'build' && contextFiles && contextOptimization) {

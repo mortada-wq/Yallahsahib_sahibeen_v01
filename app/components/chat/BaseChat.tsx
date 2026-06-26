@@ -16,13 +16,13 @@ import * as Tooltip from '@radix-ui/react-tooltip';
 import styles from './BaseChat.module.scss';
 import type { ProviderInfo } from '~/types/model';
 import { importChatStore } from '~/lib/stores/importChat';
-import type { ActionAlert, SupabaseAlert, DeployAlert, LlmErrorAlertType } from '~/types/actions';
+import type { ActionAlert, DeployAlert, LlmErrorAlertType } from '~/types/actions';
 import DeployChatAlert from '~/components/deploy/DeployAlert';
 import ChatAlert from './ChatAlert';
 import type { ModelInfo } from '~/lib/modules/llm/types';
 import ProgressCompilation from './ProgressCompilation';
 import type { ProgressAnnotation } from '~/types/context';
-import { SupabaseChatAlert } from '~/components/chat/SupabaseAlert';
+
 import { expoUrlAtom } from '~/lib/stores/qrCodeStore';
 import { useStore } from '@nanostores/react';
 import { StickToBottom, useStickToBottomContext } from '~/lib/hooks';
@@ -63,8 +63,6 @@ interface BaseChatProps {
   setImageDataList?: (dataList: string[]) => void;
   actionAlert?: ActionAlert;
   clearAlert?: () => void;
-  supabaseAlert?: SupabaseAlert;
-  clearSupabaseAlert?: () => void;
   deployAlert?: DeployAlert;
   clearDeployAlert?: () => void;
   llmErrorAlert?: LlmErrorAlertType;
@@ -113,8 +111,6 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
       clearAlert,
       deployAlert,
       clearDeployAlert,
-      supabaseAlert,
-      clearSupabaseAlert,
       llmErrorAlert,
       clearLlmErrorAlert,
       data,
@@ -409,17 +405,6 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                           clearAlert={() => clearDeployAlert?.()}
                           postMessage={(message: string | undefined) => {
                             sendMessage?.({} as any, message);
-                            clearSupabaseAlert?.();
-                          }}
-                        />
-                      )}
-                      {supabaseAlert && (
-                        <SupabaseChatAlert
-                          alert={supabaseAlert}
-                          clearAlert={() => clearSupabaseAlert?.()}
-                          postMessage={(message) => {
-                            sendMessage?.({} as any, message);
-                            clearSupabaseAlert?.();
                           }}
                         />
                       )}

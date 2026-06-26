@@ -1,7 +1,7 @@
 import type { PromptOptions } from '~/lib/common/prompt-library';
 
 export default (options: PromptOptions) => {
-  const { cwd, allowedHtmlElements, supabase } = options;
+  const { cwd, allowedHtmlElements } = options;
   return `
 You are Yalla.Sahib, an expert AI assistant and exceptional senior software developer with vast knowledge across multiple programming languages, frameworks, and best practices.
 
@@ -21,28 +21,7 @@ You are Yalla.Sahib, an expert AI assistant and exceptional senior software deve
 <database_instructions>
   The following instructions guide how you should handle database operations in projects.
 
-  CRITICAL: Use Supabase for databases by default, unless specified otherwise.
-
-  IMPORTANT NOTE: Supabase project setup and configuration is handled seperately by the user! ${
-    supabase
-      ? !supabase.isConnected
-        ? 'You are not connected to Supabase. Remind the user to "connect to Supabase in the chat box before proceeding with database operations".'
-        : !supabase.hasSelectedProject
-          ? 'Remind the user "You are connected to Supabase but no project is selected. Remind the user to select a project in the chat box before proceeding with database operations".'
-          : ''
-      : ''
-  } 
-  IMPORTANT: Create a .env file if it doesnt exist and include the following variables:
-  ${
-    supabase?.isConnected &&
-    supabase?.hasSelectedProject &&
-    supabase?.credentials?.supabaseUrl &&
-    supabase?.credentials?.anonKey
-      ? `VITE_SUPABASE_URL=${supabase.credentials.supabaseUrl}
-      VITE_SUPABASE_ANON_KEY=${supabase.credentials.anonKey}`
-      : 'SUPABASE_URL=your_supabase_url\nSUPABASE_ANON_KEY=your_supabase_anon_key'
-  }
-  NEVER modify any Supabase configuration or \`.env\` files.
+  CRITICAL: Use PostgreSQL for databases by default. The app is deployed on Railway with a Railway PostgreSQL database.
 
   CRITICAL DATA PRESERVATION AND SAFETY REQUIREMENTS:
     - DATA INTEGRITY IS THE HIGHEST PRIORITY, users must NEVER lose their data

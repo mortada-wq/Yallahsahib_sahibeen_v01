@@ -1,8 +1,16 @@
 import { atom } from 'nanostores';
-import type { User } from 'firebase/auth';
+
+export interface ClerkUser {
+  id: string;
+  emailAddresses: Array<{ emailAddress: string }>;
+  firstName: string | null;
+  lastName: string | null;
+  imageUrl: string;
+  fullName: string | null;
+}
 
 export interface AuthState {
-  user: User | null;
+  user: ClerkUser | null;
   loading: boolean;
   error: string | null;
 }
@@ -13,7 +21,7 @@ export const authStore = atom<AuthState>({
   error: null,
 });
 
-export const setAuthUser = (user: User | null) => {
+export const setAuthUser = (user: ClerkUser | null) => {
   authStore.set({ user, loading: false, error: null });
 };
 
